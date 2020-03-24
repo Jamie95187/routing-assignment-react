@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import './App.css';
 
 class App extends Component {
   render () {
     return (
       <BrowserRouter>
-
         <div>
+          <h1>Home Page</h1>
+          <header className="Header">
+            <nav>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="./users">Users</a></li>
+                <li><a href="./courses">Courses</a></li>
+              </ul>
+            </nav>
+          </header>
           <Route path="/users" component={Users} />
           <Route path="/Courses" component={Courses} />
         </div>
