@@ -20,8 +20,8 @@ class Course extends Component {
         // }
         return (
             <div className="Course">
-              <h1>Course Title</h1>
-              <p>You have selected the Course with ID: {this.props.match.params.id}</p>
+              <h1>{this.props.match.params.title}</h1>
+              <p>You have selected the Course with ID: {this.props.match.params.courseId}</p>
             </div>
         );
     }
