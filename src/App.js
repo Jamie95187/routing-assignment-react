@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import NoMatch from './components/NoMatch/NoMatch';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           </header>
           <Route path="/users" component={Users}/>
           <Route path="/courses" component={Courses}/>
+          <Route component={NoMatch} />
         </div>
       </BrowserRouter>
     );
