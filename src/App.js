@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 import NoMatch from './components/NoMatch/NoMatch';
@@ -8,23 +8,24 @@ import './App.css';
 class App extends Component {
   render () {
     return (
-      <BrowserRouter>
         <div>
           <h1>Home Page</h1>
           <header className="Header">
             <nav>
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="./users">Users</Link></li>
-                <li><Link to="./courses">Courses</Link></li>
+                <li><NavLink to="/">Home</NavLink></li>
+                <li><NavLink to="./users">Users</NavLink></li>
+                <li><NavLink to="./courses">Courses</NavLink></li>
               </ul>
             </nav>
           </header>
-          <Route path="/users" component={Users}/>
-          <Route path="/courses" component={Courses}/>
-          <Route component={NoMatch} />
+          <Switch>
+            <Route path="/users" component={Users}/>
+            <Route path="/courses" component={Courses}/>
+            <Redirect from="/all-courses" to="/courses" />
+            <Route component={NoMatch} />
+          </Switch>
         </div>
-      </BrowserRouter>
     );
   }
 }
